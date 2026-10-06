@@ -35,10 +35,87 @@ public class LinkedListIntro {
             curr = curr.next;
         }
         System.out.print(" null");
+        System.out.println();
     }
+
+
+    public int delete(){
+
+        int deleted = head.data;
+
+        head = head.next;
+
+        return deleted;
+    }
+
+
+    public int deleteByKey(int key){
+
+        myNode curr = head;
+
+        try{
+            while(curr != null){
+
+                //  key = 50
+                if (curr.next.data == key){
+                    int deleted = curr.next.data;
+
+                    // 60 -> 50 -> 40 -> 30 -> 20 -> 10
+
+                    // 60 -> 40 -> 30 -> 20 -> 10 -> null
+                    curr.next = curr.next.next;
+                    return deleted;
+                }
+                curr = curr.next;
+            }
+        } catch (Exception e) {
+            System.out.println("Error is :"+e.getMessage());
+        }
+
+        System.out.println("key not found");
+
+        return -1;
+    }
+
+
+    public boolean find(int key){
+        myNode curr = head;
+        while(curr != null){
+            if (curr.data == key){
+                return true;
+            }
+            curr = curr.next;
+        }
+        return false;
+    }
+
+
+    public void reverse(){
+
+        myNode curr = head;
+
+
+        while(curr != null){
+          myNode prev = curr.next;
+
+
+
+
+
+        }
+
+
+    }
+
+
 
     // curr = head
     // curr = 30 -> 20 -> 10 -> null
+
+    // head = head.next
+    // head = 20 -> 10 -> null
+
+
 
     // curr.data = 30
     // curr = curr.next
@@ -60,10 +137,29 @@ public class LinkedListIntro {
 
 
         list.insertAtBeginning(10); // 10 -> null
-        list.insertAtBeginning( 20); // 20 -> 10 -> null
-        list.insertAtBeginning( 30); // 30 -> 20 -> 10 -> null
+        list.insertAtBeginning(20); // 20 -> 10 -> null
+        list.insertAtBeginning(30); // 30 -> 20 -> 10 -> null
+        list.insertAtBeginning(40);
+        list.insertAtBeginning(50);
+        list.insertAtBeginning(60);
+        list.insertAtBeginning(70);
 
         list.printList();
+
+
+//        list.delete();
+        list.deleteByKey(50);
+
+
+        list.printList();
+
+
+        if (list.find(50)){
+            System.out.println("Element Found");
+        }
+        else {
+            System.out.println("Element not found");
+        }
 //        myNode head = new myNode(10);
 //
 //        // 10 -> null
