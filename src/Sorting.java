@@ -61,7 +61,9 @@ class Sorting{
 
     public static void insertionSort(int[] arr){
         int n = arr.length;
-        // 4, 2, 1, 5, 3
+        // 4, 4, 1, 5, 3
+        // sorted 4
+        // unsorted 2, 1, 5, 3
         for (int i = 1; i < n; i++){
                 int key = arr[i];
                 int j = i - 1;
@@ -105,14 +107,14 @@ class Sorting{
     public static void main(String[] args){
 
 
-        int[] arr = { 4, 2, 1, 5, 3};
+        int[] arr = {4, 2, 1, 5, 3};
 
         System.out.println("before swap :");
         for(int value: arr){
             System.out.print(value+" ");
         }
 
-        selectionSort(arr);
+        insertionSort(arr);
 
         System.out.println();
         System.out.println("after swap : ");
